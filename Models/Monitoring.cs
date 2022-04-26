@@ -11,18 +11,20 @@ namespace Covid19Handbook.Models
     {
         public int Id { get; set; }
 
-        public int? patientId { get; set; }
+        public int patientId { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? reportDate { get; set; }
+        public DateTime reportDate { get; set; }
 
-        public double? bodytemp { get; set; }
+        public double bodytemp { get; set; }
 
-        public double? spo2 { get; set; }
+        public double spo2 { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string symtomps { get; set; }
 
+        [Required]
         [StringLength(200)]
         public string doctoradv { get; set; }
     }
