@@ -1,0 +1,60 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Covid19Handbook.Models.doctor>
+@{
+    ViewBag.Title = "Doctors";
+    Layout = "~/Views/Shared/_LayoutNews.cshtml";
+}
+@section Heading1
+{
+    <span>Đội ngũ Bác sỹ tư vấn</span>
+}
+@section Heading2
+{
+    <span>Đội ngũ Bác sỹ tư vấn</span>
+}
+@section link
+{
+    <a href="~/Home">Home</a>
+}
+
+<!-- ======= Doctors Section ======= -->
+<section id="doctors" class="doctors">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Đội ngũ Bác sỹ</h2>
+            <p>Đội ngũ Bác sỹ tình nguyện tư vấn hỗ trợ Covid19 trực tuyến, người bệnh liên hệ qua số điện thoại để được tư vấn bệnh một cách kịp thời.</p>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-6">
+                    <div class="member d-flex align-items-start">
+                        <div class="pic"><img src="~/Content/img/doctor.jpg" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>@item.doctorName</h4>
+                            <span>@item.phone</span>
+                            <p>@item.description</p>
+                            <div class="social">
+                                <a href=""><i class="ri-twitter-fill"></i></a>
+                                <a href=""><i class="ri-facebook-fill"></i></a>
+                                <a href=""><i class="ri-instagram-fill"></i></a>
+                                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section><!-- End Doctors Section -->
+
+<div id="container" style="margin-left: 20px">
+    <p></p>
+    <p></p>
+    <div class="pagination" style="margin-left: 400px">
+        @Html.PagedListPager(Model, page => Url.Action("doctors", "Home", new { page }))
+    </div>
+</div>

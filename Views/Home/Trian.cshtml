@@ -1,0 +1,60 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Covid19Handbook.Models.Thankful>
+@{
+    ViewBag.Title = "Thank you";
+    Layout = "~/Views/Shared/_LayoutNews.cshtml";
+}
+
+
+<!-- ======= Testimonials Section ======= -->
+<section id="testimonials" class="testimonials">
+    <div class="container">
+        <div class="section-title">
+            <h2>LỜI TRÁI TIM MUỐN NÓI</h2>
+            <p>Nói sao cho hết ân nghĩa của các Bác sỹ nơi tuyến đầu chống dịch, trong tâm dịch các Bác sỹ và nhiều nhân viên y tế đã thức trắng đêm theo dõi từng hơi thở của bệnh nhân, thay thế người thân để chăm sóc từng bữa ăn, giấc ngủ cho người bệnh, ...</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+                @foreach (var item in Model)
+                {
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                <img src="~/Content/img/no-image.png" class="testimonial-img" alt="">
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    @Html.Raw(HttpUtility.HtmlDecode(@item.Content))
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+                }
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section><!-- End Testimonials Section -->
+@section Heading1
+{
+    <span>Tri ân Bác sỹ nơi tuyến đầu</span>
+}
+@section Heading2
+{
+    <span>Tri ân Bác sỹ nơi tuyến đầu</span>
+}
+@section link
+{
+    <a href="~/Home">Home</a>
+}
+
+<div id="container" style="margin-left: 20px">
+    <p></p>
+    <p></p>
+    <div class="pagination" style="margin-left: 400px">
+        @Html.PagedListPager(Model, page => Url.Action("trian", "Home", new { page }))
+    </div>
+</div>

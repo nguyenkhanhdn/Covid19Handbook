@@ -1,0 +1,68 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Covid19Handbook.Models.hotline>
+@{
+    ViewBag.Title = "Hotlines";
+    Layout = "~/Views/Shared/_LayoutNews.cshtml";
+}
+
+@section Heading1
+{
+    <span>Điện thoại đường dây nóng</span>
+}
+@section Heading2
+{
+    <span>Điện thoại đường dây nóng</span>
+}
+@section link
+{
+    <a href="~/Home">Home</a>
+}
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Điện thoại đường dây nóng</h2>
+            <p>Điện thoại đường dây nóng các Trung tâm Y tế phường, quận và các số điện thoại cấp cứu.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mt-5">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="info">
+                        <div class="address">
+                            <i class="bi bi-geo-alt"></i>
+                            <h4>Địa chỉ:</h4>
+                            <p>@item.address</p>
+                        </div>
+
+                        <div class="email">
+                            <i class="bi bi-envelope-dash"></i>
+                            <h4>Đơn vị:</h4>
+                            <p>@item.office</p>
+                        </div>
+
+                        <div class="phone">
+                            <i class="bi bi-phone"></i>
+                            <h4>Điện thoại:</h4>
+                            <p>@item.hotline1</p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section><!-- End Contact Section -->
+
+<div id="container" style="margin-left: 20px">
+    <p></p>
+    <p></p>
+    <div class="pagination" style="margin-left: 400px">
+        @Html.PagedListPager(Model, page => Url.Action("hotlines", "Home", new { page }))
+    </div>
+</div>

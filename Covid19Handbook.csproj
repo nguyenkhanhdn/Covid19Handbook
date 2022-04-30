@@ -188,6 +188,7 @@
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Controllers\QAsController.cs" />
+    <Compile Include="Controllers\ThankfulsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1326,6 +1327,9 @@
     <Content Include="Content\img\avatar3.png" />
     <Content Include="Content\img\avatar4.png" />
     <Content Include="Content\img\avatar5.png" />
+    <Content Include="Content\img\doctor.jpg" />
+    <Content Include="Content\img\doctor2.jpg" />
+    <Content Include="Content\img\doctor3.jpg" />
     <Content Include="Content\img\fruit-splash.png" />
     <Content Include="Content\img\juce-pomegranate-shadow.png" />
     <Content Include="Content\img\juce-pomegranate.png" />
@@ -1341,6 +1345,7 @@
     <Content Include="Content\img\makeup-petal-3.png" />
     <Content Include="Content\img\makeup.jpg" />
     <Content Include="Content\img\moisture.jpg" />
+    <Content Include="Content\img\No-Image.png" />
     <Content Include="Content\img\pattern-dot.png" />
     <Content Include="Content\img\pb-beer-1513436-1600.jpg" />
     <Content Include="Content\img\px-apartment-chairs-contemporary-2015560-1600.jpg" />
@@ -1555,6 +1560,14 @@
     <Content Include="Views\Monitorings\Details.cshtml" />
     <Content Include="Views\Monitorings\Edit.cshtml" />
     <Content Include="Views\Monitorings\Index.cshtml" />
+    <Content Include="Views\Home\Trian.cshtml" />
+    <Content Include="Views\Thankfuls\Create.cshtml" />
+    <Content Include="Views\Thankfuls\Delete.cshtml" />
+    <Content Include="Views\Thankfuls\Details.cshtml" />
+    <Content Include="Views\Thankfuls\Edit.cshtml" />
+    <Content Include="Views\Thankfuls\Index.cshtml" />
+    <Content Include="Views\Home\Hotlines.cshtml" />
+    <Content Include="Views\Home\Doctors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ckfinder\userfiles\files\" />

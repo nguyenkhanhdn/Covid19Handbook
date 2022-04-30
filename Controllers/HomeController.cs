@@ -37,10 +37,12 @@ namespace Covid19Handbook.Controllers
             return View("News");
         }
 
-        public ViewResult qnas()
+        public ViewResult qnas(int? page)
         {
-            var qas = db.QAs.ToList();
-            return View(qas);
+            var qas = db.QAs.OrderByDescending(q=>q.Id).ToList();
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(qas.ToPagedList(pageNumber, pageSize));
         }
 
         public ViewResult Documents()
@@ -48,10 +50,12 @@ namespace Covid19Handbook.Controllers
             var documents = db.documents.ToList();
             return View(documents);
         }
-        public ViewResult Hotlines()
+        public ViewResult Hotlines(int? page)
         {
-            var hotlines = db.hotlines.ToList();
-            return View(hotlines);
+            var hotlines = db.hotlines.OrderByDescending(h => h.Id).ToList();
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(hotlines.ToPagedList(pageNumber, pageSize));
         }
 
         public ViewResult Patients()
@@ -60,16 +64,20 @@ namespace Covid19Handbook.Controllers
             return View(patients);
         }
 
-        public ViewResult Doctors()
+        public ViewResult Doctors(int? page)
         {
-            var doctors = db.doctors.ToList();
-            return View(doctors);
+            var doctors = db.doctors.OrderByDescending(d => d.Id).ToList();
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            return View(doctors.ToPagedList(pageNumber, pageSize));
         }
 
-        public ViewResult Trian()
+        public ViewResult Trian(int? page)
         {
-            var thanks = db.Thanks.ToList();
-            return View(thanks);
+            var thanks = db.Thanks.OrderByDescending(t => t.Id).ToList();
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(thanks.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult About()

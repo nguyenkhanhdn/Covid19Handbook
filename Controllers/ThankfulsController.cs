@@ -10,112 +10,107 @@ using Covid19Handbook.Models;
 
 namespace Covid19Handbook.Controllers
 {
-    public class NewsController : Controller
+    public class ThankfulsController : Controller
     {
         private Covid19Model db = new Covid19Model();
 
-        // GET: News
+        // GET: Thankfuls
         public ActionResult Index()
         {
-            var news = db.News;
-            return View(news.ToList());
+            return View(db.Thanks.ToList());
         }
 
-        // GET: News/Details/5
+        // GET: Thankfuls/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            News news = db.News.Find(id);
-            if (news == null)
+            Thankful thankful = db.Thanks.Find(id);
+            if (thankful == null)
             {
                 return HttpNotFound();
             }
-            return View(news);
+            return View(thankful);
         }
 
-        // GET: News/Create
+        // GET: Thankfuls/Create
         public ActionResult Create()
         {
-            //ViewBag.CatId = new SelectList(db.Categories, "Id", "name");
             return View();
         }
 
-        // POST: News/Create
+        // POST: Thankfuls/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost, ValidateInput(false)]
+        [HttpPost,ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Brief,Date,Content,Author,Status,View,CategoryId")] News news)
+        public ActionResult Create([Bind(Include = "Id,Content,Status")] Thankful thankful)
         {
             if (ModelState.IsValid)
             {
-                db.News.Add(news);
+                db.Thanks.Add(thankful);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            //ViewBag.CatId = new SelectList(db.Categories, "Id", "name", news.CategoryId);
-            return View(news);
+            return View(thankful);
         }
 
-        // GET: News/Edit/5
+        // GET: Thankfuls/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            News news = db.News.Find(id);
-            if (news == null)
+            Thankful thankful = db.Thanks.Find(id);
+            if (thankful == null)
             {
                 return HttpNotFound();
             }
-            //ViewBag.CatId = new SelectList(db.Categories, "Id", "name", news.CategoryId);
-            return View(news);
+            return View(thankful);
         }
 
-        // POST: News/Edit/5
+        // POST: Thankfuls/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Brief,Date,Content,Author,Status,View,CategoryId")] News news)
+        public ActionResult Edit([Bind(Include = "Id,Content,Status")] Thankful thankful)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(news).State = EntityState.Modified;
+                db.Entry(thankful).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            //ViewBag.CategoryId = new SelectList(db.Categories, "Id", "name", news.CategoryId);
-            return View(news);
+            return View(thankful);
         }
 
-        // GET: News/Delete/5
+        // GET: Thankfuls/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            News news = db.News.Find(id);
-            if (news == null)
+            Thankful thankful = db.Thanks.Find(id);
+            if (thankful == null)
             {
                 return HttpNotFound();
             }
-            return View(news);
+            return View(thankful);
         }
 
-        // POST: News/Delete/5
+        // POST: Thankfuls/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            News news = db.News.Find(id);
-            db.News.Remove(news);
+            Thankful thankful = db.Thanks.Find(id);
+            db.Thanks.Remove(thankful);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
