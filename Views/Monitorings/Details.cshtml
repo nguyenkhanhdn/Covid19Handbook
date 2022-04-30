@@ -1,0 +1,67 @@
+﻿@model Covid19Handbook.Models.Monitoring
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Monitoring</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.Fullname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Fullname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reportDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reportDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bodytemp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bodytemp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.spo2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.spo2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.symtomps)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.symtomps)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doctoradv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doctoradv)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

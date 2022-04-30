@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Covid19Handbook.Models.QA>
+
+@{
+    ViewBag.Title = "QnAs";
+    Layout = "~/Views/Shared/_LayoutNews.cshtml";
+}
+
+<!-- ======= Frequently Asked Questions Section ======= -->
+<section id="faq" class="faq section-bg">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>NHỮNG CÂU HỎI THƯỜNG GẶP</h2>
+            <p>Những câu hỏi thường gặp về dịch bệnh Covid19: Covid19 là gì, sự lây lan, cách thức phòng ngừa, các triệu chứng và dấu hiệu cảnh báo cấp cứu, xét nghiệm...</p>
+        </div>
+
+        <div class="faq-list">
+            <ul>
+                @foreach (var item in Model)
+                {
+                    <li data-aos="fade-up">
+                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">@item.question <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                            <p>
+                                @item.Answer
+                            </p>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</section><!-- End Frequently Asked Questions Section -->
+@section Heading1
+{
+    <span>Những câu hỏi thường gặp</span>
+}
+@section Heading2
+{
+    <span>Những câu hỏi thường gặp</span>
+}
+@section link
+{
+    <a href="~/Home">Home</a>
+}

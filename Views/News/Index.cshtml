@@ -12,9 +12,7 @@
 <table class="table table-condensed table-hover" id="news">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Category.name)
-            </th>
+          
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
@@ -43,9 +41,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category.name)
-                </td>
+                
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>

@@ -17,7 +17,7 @@ namespace Covid19Handbook.Controllers
         // GET: News
         public ActionResult Index()
         {
-            var news = db.News.Include(n => n.Category);
+            var news = db.News;
             return View(news.ToList());
         }
 
@@ -39,7 +39,7 @@ namespace Covid19Handbook.Controllers
         // GET: News/Create
         public ActionResult Create()
         {
-            ViewBag.CatId = new SelectList(db.Categories, "Id", "name");
+            //ViewBag.CatId = new SelectList(db.Categories, "Id", "name");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace Covid19Handbook.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Brief,Date,Content,Author,Status,View,CatId")] News news)
+        public ActionResult Create([Bind(Include = "Id,Title,Brief,Date,Content,Author,Status,View,CategoryId")] News news)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace Covid19Handbook.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CatId = new SelectList(db.Categories, "Id", "name", news.CatId);
+            //ViewBag.CatId = new SelectList(db.Categories, "Id", "name", news.CategoryId);
             return View(news);
         }
 
@@ -73,7 +73,7 @@ namespace Covid19Handbook.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CatId = new SelectList(db.Categories, "Id", "name", news.CatId);
+            //ViewBag.CatId = new SelectList(db.Categories, "Id", "name", news.CategoryId);
             return View(news);
         }
 
@@ -82,7 +82,7 @@ namespace Covid19Handbook.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Brief,Date,Content,Author,Status,View,CatId")] News news)
+        public ActionResult Edit([Bind(Include = "Id,Title,Brief,Date,Content,Author,Status,View,CategoryId")] News news)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace Covid19Handbook.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CatId = new SelectList(db.Categories, "Id", "name", news.CatId);
+            //ViewBag.CategoryId = new SelectList(db.Categories, "Id", "name", news.CategoryId);
             return View(news);
         }
 

@@ -1,0 +1,68 @@
+﻿@*@model IEnumerable<Covid19Handbook.Models.News>*@
+
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Covid19Handbook.Models.News>
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@foreach (var item in Model)
+{
+<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+    <div class="icon-box">
+        <div class="icon"><i class="fas fa-heartbeat"></i></div>
+        <h4><a href="~/Home/Details/@item.Id">@item.Title</a></h4>
+        <p>@item.Brief</p>
+    </div>
+</div>
+}
+
+<div style="clear:both;height:30px;"></div>
+@*
+<div >
+    @Html.PagedListPager(Model, page => Url.Action("News", "Home", new { page }), new PagedListRenderOptions
+{
+    LiElementClasses = new string[] { "page-item" },
+    PageClasses = new string[] { "page-link" }
+
+})
+</div>*@
+<style>
+    .ul.pagination {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+
+    ul.pagination li {
+        display: inline;
+    }
+
+        ul.pagination li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            background-color: #BADAF7;
+        }
+
+            ul.pagination li a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            ul.pagination li a:hover:not(.active) {
+                background-color: #ddd;
+            }
+</style>
+
+<div id="container" style="margin-left: 20px">
+    <p></p>
+    <p></p>
+    <div class="pagination" style="margin-left: 400px">
+        @Html.PagedListPager(Model, page => Url.Action("News", "Home", new { page }))
+    </div>
+</div>
