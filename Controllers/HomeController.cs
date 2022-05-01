@@ -45,10 +45,12 @@ namespace Covid19Handbook.Controllers
             return View(qas.ToPagedList(pageNumber, pageSize));
         }
 
-        public ViewResult Documents()
+        public ViewResult Documents(int? page)
         {
-            var documents = db.documents.ToList();
-            return View(documents);
+            var docments = db.documents.OrderByDescending(d => d.Id).ToList();
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            return View(docments.ToPagedList(pageNumber, pageSize));
         }
         public ViewResult Hotlines(int? page)
         {

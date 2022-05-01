@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Covid19Handbook.Controllers
 {
+    [Authorize(Users ="admin@gmail.com")]
     public class adminController : Controller
     {
         // GET: admin

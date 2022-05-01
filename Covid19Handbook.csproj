@@ -1327,9 +1327,11 @@
     <Content Include="Content\img\avatar3.png" />
     <Content Include="Content\img\avatar4.png" />
     <Content Include="Content\img\avatar5.png" />
+    <Content Include="Content\img\doc2.png" />
     <Content Include="Content\img\doctor.jpg" />
     <Content Include="Content\img\doctor2.jpg" />
     <Content Include="Content\img\doctor3.jpg" />
+    <Content Include="Content\img\documents.png" />
     <Content Include="Content\img\fruit-splash.png" />
     <Content Include="Content\img\juce-pomegranate-shadow.png" />
     <Content Include="Content\img\juce-pomegranate.png" />
@@ -1568,6 +1570,8 @@
     <Content Include="Views\Thankfuls\Index.cshtml" />
     <Content Include="Views\Home\Hotlines.cshtml" />
     <Content Include="Views\Home\Doctors.cshtml" />
+    <Content Include="Views\Shared\_LayoutAccount.cshtml" />
+    <Content Include="Views\Home\Documents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ckfinder\userfiles\files\" />

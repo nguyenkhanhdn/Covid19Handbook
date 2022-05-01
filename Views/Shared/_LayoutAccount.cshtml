@@ -29,38 +29,6 @@
 
 <body>
 
-    <!-- Messenger Chat plugin Code -->
-    <div id="fb-root"></div>
-
-    <!-- Your Chat plugin code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-
-    <script>
-        var chatbox = document.getElementById('fb-customer-chat');
-        chatbox.setAttribute("page_id", "106630732038807");
-        chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
-
-    <!-- Your SDK code -->
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                xfbml: true,
-                version: 'v13.0'
-            });
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-
     <!-- ======= Top Bar ======= -->
     <div id="topbar" class="d-flex align-items-center fixed-top">
         <div class="container d-flex justify-content-between">
@@ -118,74 +86,28 @@
 
         </div>
     </header><!-- End Header -->
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center">
-        <div class="container">
-            <h1>CẨM NANG COVID19</h1>
-            <h2>&quot;Với bệnh tật, hãy tạo thành hai thói quen - giúp đỡ, hoặc ít nhất, không tạo thêm tổn thương&quot;</h2>
-            <a href="#about" class="btn-get-started scrollto">Về chúng tôi</a>
-        </div>
-    </section><!-- End Hero -->
-
     <main id="main">
-
-        <!-- ======= Why Us Section ======= -->
-        <section id="why-us" class="why-us">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
             <div class="container">
 
-                <div class="row">
-                    <div class="col-lg-4 d-flex align-items-stretch">
-                        <div class="content">
-                            <h3>Cẩm nang Covid<sup>19</sup> có gì?</h3>
-                            <p>
-                                Là cổng thông tin tích hợp, tổng hợp đầy đủ các thông tin về dịch bệnh Covid19,
-                                người dùng chỉ cần truy cập &quot;Cẩm nang Covid19&quot; là có đầy đủ các thông tin, không cần phải tìm kiếm hoặc truy cập thông tin từ nhiều trang khác nhau.
-                            </p>
-                            <div class="text-center">
-                                <a href="#" class="more-btn">Xem thêm <i class="bx bx-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 d-flex align-items-stretch">
-                        <div class="icon-boxes d-flex flex-column justify-content-center">
-                            <div class="row">
-                                <div class="col-xl-4 d-flex align-items-stretch">
-                                    <div class="icon-box mt-4 mt-xl-0">
-                                        <i class="bx bx-receipt"></i>
-                                        <h4>Văn bản về Covid19</h4>
-                                        <p>Các văn bản của nhà nước về quy định trong công tác phòng chống dịch Covid19 và cách ly y tế.</p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 d-flex align-items-stretch">
-                                    <div class="icon-box mt-4 mt-xl-0">
-                                        <i class="bx bx-briefcase-alt"></i>
-                                        <h4>Kết nối mạng lưới Bác sỹ</h4>
-                                        <p>Kết nối hệ thống Bác sỹ chuyên khoa tư vấn điều trị bệnh Covid19</p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 d-flex align-items-stretch">
-                                    <div class="icon-box mt-4 mt-xl-0">
-                                        <i class="bx bx-food-menu"></i>
-                                        <h4>Sức khỏe & dinh dưỡng</h4>
-                                        <p>Tư vấn về sức khỏe, chế độ dinh dưỡng và luyện tập, các bệnh tật hậu Covid19.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- End .content-->
-                    </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>@RenderSection("heading2", required: false)</h2>
+                    <ol>
+                        <li><a href="~/Home">Home</a></li>
+                        <li>@RenderSection("heading1",required:false)</li>
+                    </ol>
                 </div>
 
             </div>
-        </section><!-- End Why Us Section -->
-        <!-- ======= Services Section ======= -->
-        <section id="services" class="services">
+        </section><!-- End Breadcrumbs Section -->
+        <section class="inner-page">
             <div class="container">
-                <div class="row">
-                    @RenderBody()                    
-                </div>
+                <p>
+                    @RenderBody()
+                </p>
             </div>
-        </section><!-- End Services Section -->
-
+        </section>
     </main><!-- End #main -->
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -234,7 +156,6 @@
                             <input type="email" name="email"><input type="submit" value="Đăng ký">
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -1,0 +1,60 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Covid19Handbook.Models.document>
+
+@{
+    ViewBag.Title = "Documents";
+    Layout = "~/Views/Shared/_LayoutNews.cshtml";
+}
+
+<!-- ======= Doctors Section ======= -->
+<section id="doctors" class="doctors">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>VĂN BẢN</h2>
+            <p>Văn bản của nhà nước qui định về phòng chống dịch Covid19, cách ly y tế, ...</p>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-6">
+                    <div class="member d-flex align-items-start">
+                        <div class="pic"><img src="~/Content/img/documents.png" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h6>Số hiệu: @item.docNo</h6>
+                            <h6>Tên gọi: @item.title</h6>
+                            <h6>Ngày ban hành: @item.date</h6>
+                            <h6>Cơ quan ban hành: @item.officer</h6>
+                            <p>@item.content</p>
+                            <div class="social">
+                                @*<a href="@item.link"><i class="ri-link"></i></a>*@
+                                <a href="@item.link"><i class="ri-download-cloud-2-fill"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             }
+        </div>        
+    </div>
+</section><!-- End Doctors Section -->
+<div id="container" style="margin-left: 20px">
+    <p></p>
+    <p></p>
+    <div class="pagination" style="margin-left: 400px">
+        @Html.PagedListPager(Model, page => Url.Action("documents", "Home", new { page }))
+    </div>
+</div>
+@section Heading1
+{
+    <span>Văn bản về phòng chống dịch Covid19</span>
+}
+@section Heading2
+{
+    <span>Văn bản về phòng chống dịch Covid19</span>
+}
+@section link
+{
+    <a href="~/Home">Home</a>
+}
