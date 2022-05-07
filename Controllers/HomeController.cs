@@ -16,7 +16,7 @@ namespace Covid19Handbook.Controllers
         public ActionResult Index()
         {
             var news = db.News;
-            return View(news.ToList());
+            return View(news.ToList().Take(3));
         }
 
         public ViewResult News(int? page)
